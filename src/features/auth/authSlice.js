@@ -17,14 +17,14 @@ const authSlice = createSlice({
         },
 
         // Remove user credentials from state when logging out
-        logOut: (state, action) => {
+        removeCredentials: (state, action) => {
             state.token = null;
         }
     }
 });
 
 // Export actions
-export const { setCredentials, logOut } = authSlice.actions;
+export const { setCredentials, removeCredentials } = authSlice.actions;
 
 
 // Selectors

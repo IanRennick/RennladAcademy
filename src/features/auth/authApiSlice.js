@@ -30,10 +30,22 @@ export const authApiSlice = apiSlice.injectEndpoints({
                     'grant_type': 'refresh_token'
                 }
             })
+        }),
+
+        // Log out query
+        logOut: builder.mutation({
+            query: () => ({
+                url: '/oauth/revoke',
+                method: 'POST',
+                body: { 
+                    client_id: process.env.REACT_APP_CLIENT_ID,
+                    client_secret: process.env.REACT_APP_CLIENT_SECRET,
+                }
+            })
         }), 
     })
 });
 
 
 
-export const { useLogInMutation, useRefreshTokenMutation } = authApiSlice;
+export const { useLogInMutation, useRefreshTokenMutation, useLogOutMutation } = authApiSlice;

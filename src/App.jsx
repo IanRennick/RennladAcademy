@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import HomePage from './pages/home/HomePage';
+import ProfilePage from './pages/profile/ProfilePage';
 import QuizPage from './pages/quiz/QuizPage';
 import LogInPage from './pages/auth/LogInPage';
 import RequireAuth from './components/layout/RequireAuth';
@@ -21,6 +22,7 @@ function App() {
                 <Route element={<PersistLogIn />}>
                     <Route element={<RequireAuth />}>
                         <Route path='/quiz' element={<QuizPage />} />
+                        <Route path='/profile' element={<ProfilePage />} />
                     </Route>
                 </Route>
             </Route>
