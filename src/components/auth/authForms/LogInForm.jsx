@@ -51,10 +51,12 @@ const LogInForm = () => {
     
         try {
             // Try log in call
-            const userData = await logIn({ email, password }).unwrap();
+            const response = await logIn({ email, password }).unwrap();
+
+            console.log(response);
     
             // Store access token in state
-            dispatch(setCredentials({ ...userData, email }));
+            dispatch(setCredentials({ ...response }));
     
             // Reset email and password state
             setEmail('');

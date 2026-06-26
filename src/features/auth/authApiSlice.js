@@ -18,9 +18,22 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 }
             })
         }),
+
+        // Refresh token query
+        refreshToken: builder.mutation({
+            query: () => ({
+                url: '/oauth/token',
+                method: 'POST',
+                body: { 
+                    client_id: process.env.REACT_APP_CLIENT_ID,
+                    client_secret: process.env.REACT_APP_CLIENT_SECRET,
+                    'grant_type': 'refresh_token'
+                }
+            })
+        }), 
     })
 });
 
 
 
-export const { useLogInMutation } = authApiSlice;
+export const { useLogInMutation, useRefreshTokenMutation } = authApiSlice;

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { selectCurrentToken } from '../../features/auth/authSlice';
 
 
+// Checks for access token and redirects to log in page if not found
 const RequireAuth = () => {
 
     // Get access token from state

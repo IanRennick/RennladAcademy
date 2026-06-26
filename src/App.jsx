@@ -4,6 +4,7 @@ import HomePage from './pages/home/HomePage';
 import QuizPage from './pages/quiz/QuizPage';
 import LogInPage from './pages/auth/LogInPage';
 import RequireAuth from './components/layout/RequireAuth';
+import PersistLogIn from './components/layout/PersistLogIn';
 
 
 function App() {
@@ -17,8 +18,10 @@ function App() {
                 <Route path='/logIn' element={<LogInPage />} />
 
                 {/* Protected Routes */}
-                <Route element={<RequireAuth />}>
-                    <Route path='/quiz' element={<QuizPage />} />
+                <Route element={<PersistLogIn />}>
+                    <Route element={<RequireAuth />}>
+                        <Route path='/quiz' element={<QuizPage />} />
+                    </Route>
                 </Route>
             </Route>
         </Routes>
