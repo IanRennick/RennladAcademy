@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { setCredentials, logOut } from '../../features/auth/authSlice';
+import { setCredentials, removeCredentials } from '../../features/auth/authSlice';
 
 
 
@@ -58,7 +58,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
 
         } else {
             // Log out if we dont recieve a new access token
-            api.dispatch(logOut());
+            api.dispatch(removeCredentials());
         };
     };
 
