@@ -3,6 +3,7 @@ import useRefreshToken from '../../hooks/useRefreshToken';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { selectCurrentToken } from '../../features/auth/authSlice';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 
 
@@ -19,6 +20,10 @@ const PersistLogIn = () => {
 
     // Get access token from state
     const token = useSelector(selectCurrentToken);
+
+    // Get persist login status from local storage
+    const [persist] = useLocalStorage('persist', false);
+
 
 
 
@@ -61,7 +66,8 @@ const PersistLogIn = () => {
 
     return (
         <>
-            {hookCalled && !isLoading ? <Outlet /> : <p>Loading...</p>}
+            {!persist ? <Outlet /> :
+                hookCalled && !isLoading ? <Outlet /> : <p>Loading...</p>}
         </>
     )
 };

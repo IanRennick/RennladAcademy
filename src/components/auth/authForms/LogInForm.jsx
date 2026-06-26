@@ -9,6 +9,9 @@ import { MdMarkEmailRead } from 'react-icons/md';
 import { BsFillShieldLockFill } from 'react-icons/bs';
 import { AiOutlineSwapRight } from 'react-icons/ai';
 import { CircularProgress } from '@mui/material';
+import useInput from '../../../hooks/useInput';
+import useToggle from '../../../hooks/useToggle';
+
 
 
 
@@ -19,10 +22,13 @@ const LogInForm = () => {
     const errorRef = useRef();
     
     // State for email and password inputs / any error messages
-    const [email, setEmail] = useState('');
+    const [email, resetEmail, emailAttributes] = useInput('emailInput', '');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    
+
+    // State for persist log in checkbox
+    const [check, toggleCheck] = useToggle('persist', false);
+
     // Navigate function
     const navigate = useNavigate();
         
@@ -59,7 +65,7 @@ const LogInForm = () => {
             dispatch(setCredentials({ ...response }));
     
             // Reset email and password state
-            setEmail('');
+            resetEmail();
             setPassword('');
     
             // Navigate to home page
@@ -90,7 +96,6 @@ const LogInForm = () => {
     
     
     // Set email and password in state
-    const handleEmailInput = (e) => setEmail(e.target.value);
     const handlePasswordInput = (e) => setPassword(e.target.value);
 
 
@@ -120,8 +125,7 @@ const LogInForm = () => {
                             type='email'
                             id='email'
                             ref={emailRef}
-                            value={email}
-                            onChange={handleEmailInput}
+                            {...emailAttributes}
                             autoComplete='off'
                             required
                             className='form_input'
@@ -157,6 +161,18 @@ const LogInForm = () => {
                             <><span>Log In</span><AiOutlineSwapRight className='button_icon' /></>
                     }         
                 </button>
+
+                {/* Persist Login checkbox */}
+                <div className='persist_check'>
+                    <input 
+                        type='checkbox'
+                        id='persist'
+                        onChange={toggleCheck}
+                        checked={check}
+                    />
+
+                    <label className='persist_label' htmlFor="persist">Trust this device?</label>
+                </div>
 
                 {/* Forgot password link */}
                 <span className='forgot_password'>
