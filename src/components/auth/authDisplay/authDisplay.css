@@ -120,6 +120,7 @@
 @media screen and (max-width: 602px) {
     .authDisplay_container {
         width: 100%;
+        min-height: 80px;
     }
 
     .banner_title {

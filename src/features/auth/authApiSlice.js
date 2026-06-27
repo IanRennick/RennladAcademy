@@ -19,6 +19,18 @@ export const authApiSlice = apiSlice.injectEndpoints({
             })
         }),
 
+        // Register call query
+        register: builder.mutation({
+            query: credentials => ({
+                url: '/users',
+                method: 'POST',
+                body: { 
+                    ...credentials,
+                    client_id: process.env.REACT_APP_CLIENT_ID,
+                }
+            })
+        }),
+
         // Refresh token query
         refreshToken: builder.mutation({
             query: () => ({
@@ -48,4 +60,4 @@ export const authApiSlice = apiSlice.injectEndpoints({
 
 
 
-export const { useLogInMutation, useRefreshTokenMutation, useLogOutMutation } = authApiSlice;
+export const { useLogInMutation, useRegisterMutation, useRefreshTokenMutation, useLogOutMutation } = authApiSlice;

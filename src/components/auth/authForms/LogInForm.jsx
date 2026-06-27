@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './authForms.css';
 import image from '../../../images/spaceship.svg';
 import { Link, useNavigate } from 'react-router-dom';
