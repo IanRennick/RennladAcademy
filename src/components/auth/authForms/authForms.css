@@ -161,6 +161,49 @@
 
 
 
+/* Instructions that pop up when input value doesnt meet requirements */
+.instructions {
+    position: relative;
+    max-width: 260px;
+    bottom: -5px;
+    border-radius: 0.5rem;
+
+    font-size: 0.75rem;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem;
+}
+
+.instructions > svg {
+    margin-right: 0.25rem;
+}
+
+
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+
+
+/* Hides instructions */
+.hide {
+    display: none;
+}
+
+/* Valid Input */
+.valid {
+    margin-left: 0.25rem;
+
+    color: limegreen;
+}
+
+/* Invalid Input */
+.invalid {
+    margin-left: 0.25rem;
+
+    color: red;
+}
 
 
 
@@ -181,6 +224,11 @@
         width: 100%;
         max-width: 200px;
     }
+
+    .instructions {
+        width: 100%;
+        max-width: 200px;
+    }
 }
 
 @media screen and (max-width: 602px) {
@@ -190,9 +238,5 @@
 
     .message_image {
         width: 40px;
-    }
-
-    .auth_form {
-        gap: .5rem;
     }
 }

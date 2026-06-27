@@ -1,6 +1,7 @@
 /* Outside container for the auth component */
 .auth_container {
-    height: 75vh;
+    height: 85vh;
+    min-height: 520px;
     width: 60%;
     margin: auto;
     border-radius: 10px;

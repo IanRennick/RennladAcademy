@@ -4,6 +4,7 @@ import HomePage from './pages/home/HomePage';
 import ProfilePage from './pages/profile/ProfilePage';
 import QuizPage from './pages/quiz/QuizPage';
 import LogInPage from './pages/auth/LogInPage';
+import RegisterPage from './pages/auth/RegisterPage';
 import RequireAuth from './components/layout/RequireAuth';
 import PersistLogIn from './components/layout/PersistLogIn';
 
@@ -17,6 +18,7 @@ function App() {
                 {/* Public Routes */}
                 <Route index element={<HomePage />}/>
                 <Route path='/logIn' element={<LogInPage />} />
+                <Route path='/register' element={<RegisterPage />} />
 
                 {/* Protected Routes */}
                 <Route element={<PersistLogIn />}>

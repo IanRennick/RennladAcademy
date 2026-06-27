@@ -1,6 +1,7 @@
 import './auth.css';
 import AuthDisplay from './authDisplay/AuthDisplay';
 import LogInForm from './authForms/LogInForm';
+import RegisterForm from './authForms/RegisterForm';
 
 
 // Main component for auth pages
@@ -14,7 +15,10 @@ const Auth = ({ page }) => {
             <AuthDisplay page={page} />
 
             {/* Log In / Register Form */}
-            <LogInForm />
+            {page === 'logIn' ? 
+                <LogInForm /> : 
+                <RegisterForm /> 
+            }
         </div>
     );
 };

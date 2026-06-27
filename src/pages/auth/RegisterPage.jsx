@@ -2,15 +2,18 @@ import Auth from '../../components/auth/Auth';
 import './authPage.css';
 
 
-const LogInPage = () => {
+
+
+
+const RegisterPage = () => {
 
 
 
     return (
         <div className="authPage_container">
-            <Auth page='logIn' />
+            <Auth page='register' />
         </div>
     );
 };
 
-export default LogInPage;
+export default RegisterPage;
